@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Bootstrap overrides */
+:root {
+  --bs-primary: #3b82f6;
+  --bs-primary-rgb: 59, 130, 246;
+}
+
+/* Custom utility classes */
+@layer components {
+  .btn-primary-custom {
+    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+
+  .card-custom {
+    @apply bg-white rounded-xl shadow-md p-6 border border-gray-100;
+  }
+
+  .input-custom {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all duration-200;
+  }
+
+  .badge-pending {
+    @apply bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded-full;
+  }
+
+  .badge-in-progress {
+    @apply bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full;
+  }
+
+  .badge-completed {
+    @apply bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full;
+  }
+
+  .badge-delayed {
+    @apply bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded-full;
+  }
+}
+
+/* Global styles */
+body {
+  @apply bg-gray-50 text-gray-900 antialiased;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-full hover:bg-gray-400;
+}
