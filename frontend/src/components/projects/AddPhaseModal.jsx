@@ -148,7 +148,11 @@ const AddPhaseModal = ({ isOpen, onClose, onSubmit, projectId }) => {
           onChange={handleChange}
           placeholder="Select a developer (optional)"
           options={developers.map((dev) => ({
+<<<<<<< HEAD
             value: dev.id || dev._id,
+=======
+            value: dev._id,
+>>>>>>> 1560859db2d664fdbf609d8aae45b92a884b1103
             label: dev.name,
           }))}
         />

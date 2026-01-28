@@ -61,24 +61,40 @@ const DeveloperDashboard = () => {
   const myPhases = projects.flatMap((project) =>
     (project.phases || [])
       .filter(
+<<<<<<< HEAD
         (phase) => {
           const assignedId = phase.assignedDeveloper?.id || phase.assignedDeveloper?._id || phase.assignedDeveloper;
           return assignedId === user?.id;
         }
+=======
+        (phase) =>
+          phase.assignedDeveloper?._id === user?.id ||
+          phase.assignedDeveloper === user?.id
+>>>>>>> 1560859db2d664fdbf609d8aae45b92a884b1103
       )
       .map((phase) => ({
         ...phase,
         projectTitle: project.title,
+<<<<<<< HEAD
         projectId: project._id || project.id,
+=======
+        projectId: project._id,
+>>>>>>> 1560859db2d664fdbf609d8aae45b92a884b1103
       }))
   );
 
   const myPhasesInProject = selectedProject
     ? (selectedProject.phases || []).filter(
+<<<<<<< HEAD
         (phase) => {
           const assignedId = phase.assignedDeveloper?.id || phase.assignedDeveloper?._id || phase.assignedDeveloper;
           return assignedId === user?.id;
         }
+=======
+        (phase) =>
+          phase.assignedDeveloper?._id === user?.id ||
+          phase.assignedDeveloper === user?.id
+>>>>>>> 1560859db2d664fdbf609d8aae45b92a884b1103
       )
     : [];
 
@@ -184,8 +200,14 @@ const DeveloperDashboard = () => {
                   {selectedProject.phases?.length > 0 ? (
                     <div className="space-y-3">
                       {selectedProject.phases.map((phase) => {
+<<<<<<< HEAD
                         const assignedId = phase.assignedDeveloper?.id || phase.assignedDeveloper?._id || phase.assignedDeveloper;
                         const isMyPhase = assignedId === user?.id;
+=======
+                        const isMyPhase =
+                          phase.assignedDeveloper?._id === user?.id ||
+                          phase.assignedDeveloper === user?.id;
+>>>>>>> 1560859db2d664fdbf609d8aae45b92a884b1103
                         return (
                           <PhaseItem
                             key={phase._id}

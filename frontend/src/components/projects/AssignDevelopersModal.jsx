@@ -27,13 +27,21 @@ const AssignDevelopersModal = ({
 
     if (isOpen) {
       fetchDevelopers();
+<<<<<<< HEAD
       // Set initially selected developers (handle both id and _id formats)
       setSelectedDevelopers(currentDevelopers.map((d) => d.id || d._id || d));
+=======
+      // Set initially selected developers
+      setSelectedDevelopers(currentDevelopers.map((d) => d._id || d));
+>>>>>>> 1560859db2d664fdbf609d8aae45b92a884b1103
     }
   }, [isOpen, currentDevelopers]);
 
   const toggleDeveloper = (devId) => {
+<<<<<<< HEAD
     if (!devId) return; // Guard against null/undefined
+=======
+>>>>>>> 1560859db2d664fdbf609d8aae45b92a884b1103
     setSelectedDevelopers((prev) =>
       prev.includes(devId)
         ? prev.filter((id) => id !== devId)
@@ -81,6 +89,7 @@ const AssignDevelopersModal = ({
         </p>
 
         <div className="space-y-2 max-h-64 overflow-y-auto">
+<<<<<<< HEAD
           {developers.map((dev) => {
             const devId = dev.id || dev._id;
             const isSelected = selectedDevelopers.includes(devId);
@@ -106,6 +115,29 @@ const AssignDevelopersModal = ({
               </div>
             );
           })}
+=======
+          {developers.map((dev) => (
+            <div
+              key={dev._id}
+              onClick={() => toggleDeveloper(dev._id)}
+              className={`flex items-center justify-between p-3 rounded-lg border cursor-pointer transition-all ${
+                selectedDevelopers.includes(dev._id)
+                  ? 'border-primary-500 bg-primary-50'
+                  : 'border-gray-200 hover:border-gray-300'
+              }`}
+            >
+              <div>
+                <p className="font-medium text-gray-900">{dev.name}</p>
+                <p className="text-sm text-gray-500">{dev.email}</p>
+              </div>
+              {selectedDevelopers.includes(dev._id) && (
+                <div className="w-6 h-6 bg-primary-600 rounded-full flex items-center justify-center">
+                  <FiCheck className="w-4 h-4 text-white" />
+                </div>
+              )}
+            </div>
+          ))}
+>>>>>>> 1560859db2d664fdbf609d8aae45b92a884b1103
         </div>
 
         {developers.length === 0 && (
